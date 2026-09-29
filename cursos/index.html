@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursos de Formação ISO | Doutor Gestão</title>
+<meta name="description" content="Trilha de cursos em normas ISO — auditoria interna, gestão ambiental, segurança do trabalho e mais. Formação prática com certificado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script src="../data/cursos-data.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="../index.html" class="logo">
+      <img src="../assets/doutor-gestao-banner.png" alt="Doutor Gestão">
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./" aria-current="page">Cursos</a></li>
+        <li><a href="../artigos/">Artigos</a></li>
+        <li><a href="../quem-somos/">Quem Somos</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="header-login-link" href="https://doutorgestao.greenn.club/vitrine" target="_blank" rel="noopener">Já sou aluno</a>
+      <a class="btn btn-primary" href="../curso-auditor-interno-iso-9001/">Quero me formar</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" style="padding:56px 0 40px;">
+  <div class="container" style="grid-template-columns:1fr; text-align:center;">
+    <div class="hero-copy" style="max-width:680px; margin:0 auto;">
+      <span class="hero-eyebrow">Trilha de formação ISO</span>
+      <h1>Cursos de <span>Sistemas de Gestão</span> para quem quer sair na frente</h1>
+      <p class="hero-sub" style="margin:0 auto;">Formação prática, direto de quem audita empresas como Gerdau e Vale há mais de 35 anos. Novos cursos sendo adicionados a esta trilha continuamente.</p>
+      <p style="margin:16px 0 0;"><a class="hero-member-link" href="https://doutorgestao.greenn.club/vitrine" target="_blank" rel="noopener">Já é aluno? Acesse a área de membros &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="catalog-search">
+      <input type="search" id="course-search" class="course-search-input" placeholder="Buscar curso por nome, ex: ISO 9001..." aria-label="Buscar curso">
+    </div>
+
+    <div class="catalog-filters" id="catalog-filters">
+      <!-- Preenchido em tempo de execução com as categorias de ../data/cursos-data.js -->
+    </div>
+
+    <div class="course-grid" id="course-grid">
+      <!-- Preenchido em tempo de execução a partir de ../data/cursos-data.js -->
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Quer ser avisado quando um novo curso for lançado?</h2>
+    <p>A trilha de formações ISO da Doutor Gestão está crescendo. Comece pelo curso disponível agora.</p>
+    <a class="btn btn-primary" href="../curso-auditor-interno-iso-9001/">Ver curso disponível</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-logo-feature">
+      <img src="https://doutorgestao.com.br/wp-content/uploads/2025/11/Logo-doutorgestao-quadrado-sem-fundo-1-1.webp" alt="Doutor Gestão">
+    </div>
+    <div class="footer-grid">
+      <div>
+        <p style="font-size:13px;">Formação e consultoria em sistemas de gestão, ESG e certificações internacionais. Belo Horizonte – MG.</p>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="../quem-somos/">Quem Somos</a></li>
+          <li><a href="../faq/">FAQ</a></li>
+          <li><a href="../artigos/">Artigos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="https://doutorgestao.com.br/politica-de-cookie/">Política de Cookies</a></li>
+          <li><a href="https://doutorgestao.com.br/politica-de-privacidade/">Política de Privacidade</a></li>
+          <li><a href="https://doutorgestao.com.br/termos-e-condicoes/">Termos e Condições</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Doutor Gestão. Todos os direitos reservados.</span>
+      <span>professor.ronaldo@doutorgestao.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/5531996150785?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20cursos%20da%20Doutor%20Gest%C3%A3o." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.83 14.16c-.24.68-1.39 1.3-1.93 1.38-.5.08-1.13.11-1.82-.12-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.15-.2-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.58-.36.77-.36.2 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2.01.89 2.16.07.15.12.32.02.52-.09.2-.14.32-.28.5-.14.17-.29.38-.42.51-.14.14-.29.29-.12.57.16.29.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.26 1.39.29.14.46.12.63-.07.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.09 1.63.77 1.91.91.29.14.48.21.55.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+
+<script>
+  document.getElementById('nav-toggle').addEventListener('click', function () {
+    document.getElementById('main-nav').classList.toggle('open');
+  });
+
+  function courseTileHtml(c) {
+    var isSoon = c.status === 'em-breve';
+    var badge = isSoon
+      ? '<span class="badge-soon">Em breve</span>'
+      : '<span class="badge-available">Disponível</span>';
+    var rating = c.rating
+      ? '<div class="rating-line"><span class="stars">★★★★★</span> ' + c.rating + '</div>'
+      : '';
+    var btnClass = isSoon ? 'btn-secondary' : 'btn-primary';
+    var disabledAttr = c.link === '#' ? ' aria-disabled="true"' : '';
+    var category = c.category || 'Outros';
+    return '' +
+      '<div class="course-tile' + (isSoon ? ' is-soon' : '') + '" data-category="' + category + '">' +
+        '<div class="course-tile-media">' +
+          '<img src="' + c.image + '" alt="">' +
+          '<div class="media-overlay"></div>' +
+          '<span class="media-label">' + c.mediaLabel + '</span>' +
+        '</div>' +
+        '<div class="course-tile-body">' +
+          badge +
+          '<h3>' + c.title + '</h3>' +
+          rating +
+          '<p>' + c.description + '</p>' +
+          '<div class="course-tile-footer">' +
+            '<a class="btn ' + btnClass + '" href="' + c.link + '"' + disabledAttr + '>' + c.ctaLabel + '</a>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  document.getElementById('course-grid').innerHTML = COURSES_DATA.map(courseTileHtml).join('');
+
+  // Filtros de categoria — gerados a partir das categorias que existirem em COURSES_DATA
+  var categories = ['Todos'];
+  COURSES_DATA.forEach(function (c) {
+    var cat = c.category || 'Outros';
+    if (categories.indexOf(cat) === -1) { categories.push(cat); }
+  });
+
+  var filtersHtml = categories.map(function (cat, i) {
+    return '<span class="filter-pill' + (i === 0 ? ' is-active' : '') + '" data-filter="' + cat + '">' + cat + '</span>';
+  }).join('');
+  document.getElementById('catalog-filters').innerHTML = filtersHtml;
+
+  var activeCategory = 'Todos';
+  var searchInput = document.getElementById('course-search');
+
+  function applyFilters() {
+    var term = searchInput.value.trim().toLowerCase();
+    document.querySelectorAll('#course-grid .course-tile').forEach(function (tile) {
+      var matchesCategory = activeCategory === 'Todos' || tile.getAttribute('data-category') === activeCategory;
+      var title = tile.querySelector('h3') ? tile.querySelector('h3').textContent.toLowerCase() : '';
+      var matchesSearch = term === '' || title.indexOf(term) !== -1;
+      tile.style.display = (matchesCategory && matchesSearch) ? '' : 'none';
+    });
+  }
+
+  document.getElementById('catalog-filters').addEventListener('click', function (e) {
+    var pill = e.target.closest('.filter-pill');
+    if (!pill) { return; }
+
+    document.querySelectorAll('#catalog-filters .filter-pill').forEach(function (p) {
+      p.classList.remove('is-active');
+    });
+    pill.classList.add('is-active');
+
+    activeCategory = pill.getAttribute('data-filter');
+    applyFilters();
+  });
+
+  searchInput.addEventListener('input', applyFilters);
+
+  var revealTargets = document.querySelectorAll('.section-head, .course-tile');
+  revealTargets.forEach(function (el) { el.classList.add('fade-up'); });
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealTargets.forEach(function (el) { observer.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+</script>
+
+</body>
+</html>
