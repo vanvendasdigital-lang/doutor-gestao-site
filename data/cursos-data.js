@@ -51,5 +51,27 @@ const COURSES_DATA = [
     description: "Auditoria e requisitos de SST aplicados. Estrutura de curso em preparação.",
     link: "#",
     ctaLabel: "Avise-me"
+  },
+  {
+    status: "disponivel",
+    category: "Compliance",
+    mediaLabel: "ISO 37301:2021",
+    image: "",
+    title: "E-book ISO 37301:2021 — Sistema de Gestão de Compliance na Prática",
+    rating: null,
+    description: "153 páginas, 20 capítulos, 100 exercícios comentados e kit com 14 ferramentas preenchíveis.",
+    link: "../ebook-iso-37301-compliance/",
+    ctaLabel: "Ver e-book"
+  },
+  {
+    status: "disponivel",
+    category: "Compliance",
+    mediaLabel: "ISO 37001:2025",
+    image: "",
+    title: "E-book ISO 37001:2025 — Guia Prático de Implementação e Certificação",
+    rating: null,
+    description: "Sistema de Gestão Antissuborno alinhado à Lei Anticorrupção (12.846/2013) e ao Decreto 11.129/2022.",
+    link: "../ebook-iso-37001-antissuborno/",
+    ctaLabel: "Ver e-book"
   }
 ];

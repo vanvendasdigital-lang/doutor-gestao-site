@@ -124,7 +124,7 @@
     return '' +
       '<div class="course-tile' + (isSoon ? ' is-soon' : '') + '" data-category="' + category + '">' +
         '<div class="course-tile-media">' +
-          '<img src="' + c.image + '" alt="">' +
+          (c.image ? '<img src="' + c.image + '" alt="">' : '') +
           '<div class="media-overlay"></div>' +
           '<span class="media-label">' + c.mediaLabel + '</span>' +
         '</div>' +
