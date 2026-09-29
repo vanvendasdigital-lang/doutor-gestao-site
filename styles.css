@@ -570,17 +570,36 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 18px;
   text-align: center;
 }
 
-.article-card .thumb.no-image span {
-  color: rgba(255, 255, 255, 0.9);
+.article-card .thumb.no-image.cover-v2 { background: linear-gradient(135deg, #4a6fe0 0%, #1c2436 100%); }
+.article-card .thumb.no-image.cover-v3 { background: linear-gradient(200deg, #2f4aa8 0%, #101828 100%); }
+.article-card .thumb.no-image.cover-v4 { background: linear-gradient(120deg, #385bce 0%, #0f1720 100%); }
+.article-card .thumb.no-image.cover-v5 { background: linear-gradient(160deg, #273044 0%, #385bce 100%); }
+
+.cover-eyebrow {
+  display: block;
+  color: var(--color-star);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 12.5px;
+  font-size: 10.5px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.cover-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14.5px;
+  line-height: 1.35;
 }
 
 .article-card .thumb img {
@@ -628,17 +647,21 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 40px;
   text-align: center;
 }
 
-.article-detail-image.no-image span {
-  color: rgba(255, 255, 255, 0.9);
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+.article-detail-image.no-image.cover-v2 { background: linear-gradient(135deg, #4a6fe0 0%, #1c2436 100%); }
+.article-detail-image.no-image.cover-v3 { background: linear-gradient(200deg, #2f4aa8 0%, #101828 100%); }
+.article-detail-image.no-image.cover-v4 { background: linear-gradient(120deg, #385bce 0%, #0f1720 100%); }
+.article-detail-image.no-image.cover-v5 { background: linear-gradient(160deg, #273044 0%, #385bce 100%); }
+
+.article-detail-image .cover-eyebrow { font-size: 12.5px; margin-bottom: 14px; }
+
+.article-detail-image .cover-title {
+  -webkit-line-clamp: 4;
+  font-size: 24px;
+  max-width: 560px;
 }
 
 .article-meta { font-size: 13px; color: var(--color-text-muted); margin-top: 12px; }

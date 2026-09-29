@@ -46,11 +46,21 @@ $pageSize = 10
 $totalItems = $items.Count
 $totalPages = [Math]::Ceiling($totalItems / $pageSize)
 
+function Get-CoverClass([string]$slug) {
+  $sum = 0
+  foreach ($c in $slug.ToCharArray()) { $sum += [int]$c }
+  $variant = ($sum % 5) + 1
+  if ($variant -eq 1) { return "" }
+  return " cover-v$variant"
+}
+
 function Card-Html($item) {
   if ($item.image) {
     $thumbHtml = "<div class=`"thumb`"><img src=`"$(Html-Attr $item.image)`" alt=`"`"></div>"
   } else {
-    $thumbHtml = "<div class=`"thumb no-image`"><span>$(Html-Attr $item.category)</span></div>"
+    $slug = ($item.link -replace '^/','' -replace '/$','')
+    $coverClass = Get-CoverClass $slug
+    $thumbHtml = "<div class=`"thumb no-image$coverClass`"><span class=`"cover-eyebrow`">$(Html-Attr $item.category)</span><span class=`"cover-title`">$(Html-Attr $item.title)</span></div>"
   }
   return @"
       <a class="article-card" href="$(Html-Attr $item.link)">

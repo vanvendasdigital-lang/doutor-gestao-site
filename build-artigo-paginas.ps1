@@ -34,6 +34,14 @@ function Get-Slug([string]$link) {
   return $slug
 }
 
+function Get-CoverClass([string]$slug) {
+  $sum = 0
+  foreach ($c in $slug.ToCharArray()) { $sum += [int]$c }
+  $variant = ($sum % 5) + 1
+  if ($variant -eq 1) { return "" }
+  return " cover-v$variant"
+}
+
 function Get-BodyHtml($item) {
   if ($item.fullContent) {
     $paragraphs = $item.fullContent -split "`n`n" | Where-Object { $_.Trim() -ne '' }
@@ -53,7 +61,8 @@ foreach ($item in $items) {
   if ($item.image) {
     $imageHtml = "<div class=`"article-detail-image`"><img src=`"$(Html-Attr $item.image)`" alt=`"$(Html-Attr $item.title)`"></div>"
   } else {
-    $imageHtml = "<div class=`"article-detail-image no-image`"><span>$(Html-Attr $item.category)</span></div>"
+    $coverClass = Get-CoverClass $slug
+    $imageHtml = "<div class=`"article-detail-image no-image$coverClass`"><span class=`"cover-eyebrow`">$(Html-Attr $item.category)</span><span class=`"cover-title`">$(Html-Attr $item.title)</span></div>"
   }
 
   $html = @"
