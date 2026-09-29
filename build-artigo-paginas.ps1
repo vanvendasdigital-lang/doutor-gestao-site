@@ -34,11 +34,21 @@ function Get-Slug([string]$link) {
   return $slug
 }
 
+function Get-BodyHtml($item) {
+  if ($item.fullContent) {
+    $paragraphs = $item.fullContent -split "`n`n" | Where-Object { $_.Trim() -ne '' }
+    $html = ($paragraphs | ForEach-Object { "<p>$(Html-Attr $_.Trim())</p>" }) -join "`n      "
+    return $html
+  }
+  return "<p>$(Html-Attr $item.excerpt)</p>"
+}
+
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $waCta = "https://wa.me/5531996150785?text=Ol%C3%A1!%20Li%20um%20artigo%20no%20site%20e%20gostaria%20de%20saber%20mais."
 
 foreach ($item in $items) {
   $slug = Get-Slug $item.link
+  $bodyHtml = Get-BodyHtml $item
 
   if ($item.image) {
     $imageHtml = "<div class=`"article-detail-image`"><img src=`"$(Html-Attr $item.image)`" alt=`"$(Html-Attr $item.title)`"></div>"
@@ -96,7 +106,7 @@ foreach ($item in $items) {
     $imageHtml
 
     <div class="article-body">
-      <p>$(Html-Attr $item.excerpt)</p>
+      $bodyHtml
     </div>
 
     <div class="article-cta-box">
