@@ -188,7 +188,7 @@ $cardsHtml
 <footer class="site-footer">
   <div class="container">
     <div class="footer-logo-feature">
-      <img src="https://doutorgestao.com.br/wp-content/uploads/2025/11/Logo-doutorgestao-quadrado-sem-fundo-1-1.webp" alt="Doutor Gestão">
+      <img src="${rootPrefix}assets/doutor-gestao-banner.png" alt="Doutor Gestão">
     </div>
     <div class="footer-grid">
       <div>
@@ -205,9 +205,9 @@ $cardsHtml
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="https://doutorgestao.com.br/politica-de-cookie/">Política de Cookies</a></li>
-          <li><a href="https://doutorgestao.com.br/politica-de-privacidade/">Política de Privacidade</a></li>
-          <li><a href="https://doutorgestao.com.br/termos-e-condicoes/">Termos e Condições</a></li>
+          <li><a href="/politica-de-cookie/">Política de Cookies</a></li>
+          <li><a href="/politica-de-privacidade/">Política de Privacidade</a></li>
+          <li><a href="/termos-e-condicoes/">Termos e Condições</a></li>
         </ul>
       </div>
     </div>
