@@ -54,6 +54,17 @@ const COURSES_DATA = [
   },
   {
     status: "disponivel",
+    category: "Qualidade",
+    mediaLabel: "ISO 9001:2026",
+    image: "",
+    title: "E-book ISO 9001:2015 para 2026 — Guia de Transição entre Edições",
+    rating: null,
+    description: "Comparações por requisito, exemplos da GeraMinas, perguntas de auditoria e ferramentas de apoio.",
+    link: "../colecao-iso-9001-2026/",
+    ctaLabel: "Ver e-book"
+  },
+  {
+    status: "disponivel",
     category: "Compliance",
     mediaLabel: "ISO 37301:2021",
     image: "",
