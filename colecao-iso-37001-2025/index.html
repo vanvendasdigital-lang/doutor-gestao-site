@@ -15,8 +15,8 @@
   =========================================================
   CONFIGURAÇÃO RÁPIDA
   checkoutUrl já está preenchido com o checkout real da Greenn.
-  sampleUrl ainda é um placeholder — troque pelo link do PDF de
-  amostra assim que o material estiver pronto (ver seção #amostra).
+  sampleUrl já aponta para o PDF de amostra fornecido pelo cliente
+  (../downloads/amostra-gratis-iso-37001.pdf).
   =========================================================
   -->
 
@@ -584,12 +584,14 @@
   <script>
     // ==========================
     // Os botões de checkout (.js-checkout) já estão com o link real
-    // direto no HTML. Só falta o link da amostra abaixo.
+    // direto no HTML. Amostra real fornecida pelo cliente.
     // ==========================
-    const sampleUrl = "https://SEU-LINK-DA-AMOSTRA-AQUI"; // ainda não temos o PDF de amostra real — ver aviso na conversa
+    const sampleUrl = "../downloads/amostra-gratis-iso-37001.pdf";
 
     document.querySelectorAll(".js-sample").forEach(el => {
       el.setAttribute("href", sampleUrl);
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
     });
   </script>
 </body>
