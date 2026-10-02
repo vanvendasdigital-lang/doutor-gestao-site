@@ -27,7 +27,7 @@ const COURSES_DATA = [
     title: "Interpretação e Formação de Auditor Interno ISO 9001:2015",
     rating: "4,7/5 · 2.600+ avaliações · 5.700+ alunos",
     description: "Metodologia A1: planejamento, condução de entrevistas, relatório e apresentação de resultados.",
-    link: "../curso-auditor-interno-iso-9001/",
+    link: "../colecao-curso-iso-9001/",
     ctaLabel: "Ver curso"
   },
   {
@@ -60,7 +60,7 @@ const COURSES_DATA = [
     title: "E-book ISO 37301:2021 — Sistema de Gestão de Compliance na Prática",
     rating: null,
     description: "153 páginas, 20 capítulos, 100 exercícios comentados e kit com 14 ferramentas preenchíveis.",
-    link: "../ebook-iso-37301-compliance/",
+    link: "../colecao-iso-37301-2021/",
     ctaLabel: "Ver e-book"
   },
   {
@@ -71,7 +71,7 @@ const COURSES_DATA = [
     title: "E-book ISO 37001:2025 — Guia Prático de Implementação e Certificação",
     rating: null,
     description: "Sistema de Gestão Antissuborno alinhado à Lei Anticorrupção (12.846/2013) e ao Decreto 11.129/2022.",
-    link: "../ebook-iso-37001-antissuborno/",
+    link: "../colecao-iso-37001-2025/",
     ctaLabel: "Ver e-book"
   }
 ];
