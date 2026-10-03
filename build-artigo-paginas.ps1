@@ -93,7 +93,7 @@ foreach ($item in $items) {
       </ul>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-primary" href="../curso-auditor-interno-iso-9001/">Quero me formar</a>
+      <a class="btn btn-primary" href="../como-se-tornar-auditor-iso/">Saiba mais</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">☰</button>
     </div>
   </div>

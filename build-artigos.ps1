@@ -149,7 +149,7 @@ function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $
       </ul>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-primary" href="${rootPrefix}curso-auditor-interno-iso-9001/">Quero me formar</a>
+      <a class="btn btn-primary" href="${rootPrefix}como-se-tornar-auditor-iso/">Saiba mais</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">☰</button>
     </div>
   </div>
