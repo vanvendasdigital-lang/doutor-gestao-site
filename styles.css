@@ -809,8 +809,7 @@ img { max-width: 100%; display: block; }
   height: 64px;
   width: auto;
   margin: 0 auto;
-  border-radius: 8px;
-  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.35));
+  display: block;
 }
 
 .footer-grid {
