@@ -13,7 +13,8 @@
       border-radius:22px;overflow:hidden;border:1px solid #e3e8f4;box-shadow:var(--shadow);
       background:#f4f6fb;height:82vh;min-height:520px
     }
-    .pdf-frame-wrap iframe{width:100%;height:100%;border:0;display:block}
+    .pdf-frame-wrap embed{width:100%;height:100%;border:0;display:block}
+    .pdf-fallback{padding:40px;text-align:center}
   </style>
 </head>
 <body>
@@ -44,11 +45,15 @@
     <section class="section" style="padding-top:0">
       <div class="wrap" style="max-width:920px">
         <div class="pdf-frame-wrap">
-          <iframe src="https://drive.google.com/file/d/1WV8ty0BJQBb4-itJOUCei2GbFxsCg-PK/preview" allow="autoplay"></iframe>
+          <embed src="../downloads/amostra-gratis-sgi-9001-14001-45001.pdf" type="application/pdf">
+          <div class="pdf-fallback">
+            <p class="muted">Não foi possível exibir o PDF aqui.</p>
+            <a href="../downloads/amostra-gratis-sgi-9001-14001-45001.pdf" class="btn btn-outline" target="_blank" rel="noopener">Abrir a amostra em outra aba</a>
+          </div>
         </div>
         <p class="muted" style="text-align:center;font-size:.86rem;margin-top:14px">
-          Se o material não carregar aqui,
-          <a href="https://drive.google.com/file/d/1WV8ty0BJQBb4-itJOUCei2GbFxsCg-PK/view?usp=drive_link" target="_blank" rel="noopener" style="color:var(--purple-700);text-decoration:underline">abra-o diretamente no Google Drive</a>.
+          Se o PDF não carregar no seu navegador,
+          <a href="../downloads/amostra-gratis-sgi-9001-14001-45001.pdf" target="_blank" rel="noopener" style="color:var(--purple-700);text-decoration:underline">abra-o diretamente aqui</a>.
         </p>
       </div>
     </section>
@@ -105,7 +110,7 @@
       <span>Gostou da amostra? Garanta sua vaga.</span>
     </div>
     <div class="sticky-actions">
-      <a href="https://drive.google.com/file/d/1WV8ty0BJQBb4-itJOUCei2GbFxsCg-PK/view?usp=drive_link" target="_blank" rel="noopener" class="btn btn-secondary">Baixar amostra</a>
+      <a href="../downloads/amostra-gratis-sgi-9001-14001-45001.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Baixar amostra</a>
       <a href="https://payfast.greenn.com.br/196687?ch_id=143014" class="btn btn-primary">Matricular-se</a>
     </div>
   </div>
