@@ -31,6 +31,17 @@ const COURSES_DATA = [
     ctaLabel: "Ver curso"
   },
   {
+    status: "disponivel",
+    category: "Qualidade",
+    mediaLabel: "SGI",
+    image: "",
+    title: "SGI · 9001:2026, 14001:2026 e 45001:2024 — Interpretação, Aplicação e Formação de Auditores Internos",
+    rating: null,
+    description: "Formação integrada nas três normas: Kit do Auditor SGI, formação pela ISO 19011:2026 e auditoria simulada com gabarito.",
+    link: "../colecao-sgi-9001-14001-45001/",
+    ctaLabel: "Ver curso"
+  },
+  {
     status: "em-breve",
     category: "Meio Ambiente",
     mediaLabel: "ISO 14001",
