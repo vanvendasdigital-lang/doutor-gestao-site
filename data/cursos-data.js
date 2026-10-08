@@ -95,5 +95,16 @@ const COURSES_DATA = [
     description: "Sistema de Gestão Antissuborno alinhado à Lei Anticorrupção (12.846/2013) e ao Decreto 11.129/2022.",
     link: "../colecao-iso-37001-2025/",
     ctaLabel: "Ver e-book"
+  },
+  {
+    status: "disponivel",
+    category: "Compliance",
+    mediaLabel: "ISO 37001:2025",
+    image: "",
+    title: "Laboratório de Decisões Antissuborno · 100 Casos ISO 37001:2025",
+    rating: null,
+    description: "E-book interativo com 100 casos autorais, análise comentada e 300 campos de resposta digitais.",
+    link: "../laboratorio-decisoes-antissuborno/",
+    ctaLabel: "Ver e-book"
   }
 ];
