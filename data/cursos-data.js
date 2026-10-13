@@ -53,15 +53,15 @@ const COURSES_DATA = [
     ctaLabel: "Avise-me"
   },
   {
-    status: "em-breve",
+    status: "disponivel",
     category: "Segurança do Trabalho",
-    mediaLabel: "ISO 45001",
+    mediaLabel: "ISO 45001:2018",
     image: "",
-    title: "Formação em Segurança e Saúde Ocupacional ISO 45001",
+    title: "ISO 45001:2018 — Interpretação e Aplicação",
     rating: null,
-    description: "Auditoria e requisitos de SST aplicados. Estrutura de curso em preparação.",
-    link: "#",
-    ctaLabel: "Avise-me"
+    description: "Acervo com e-book, lista de requisitos legais (CLT e NRs), planilha de riscos de SST e mais de 1.600 exemplos práticos.",
+    link: "../colecao-curso-iso-45001/",
+    ctaLabel: "Ver curso"
   },
   {
     status: "disponivel",
