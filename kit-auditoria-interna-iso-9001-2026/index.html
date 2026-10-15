@@ -37,6 +37,9 @@
     .sticky-buy{z-index:999!important}
     .xls-frame-wrap{border-radius:18px;overflow:hidden;border:1px solid #e3e8f4;box-shadow:var(--shadow);background:#f4f6fb;height:70vh;min-height:460px;max-width:960px;margin:28px auto 0;isolation:isolate}
     .xls-frame-wrap iframe{width:100%;height:100%;border:0;display:block}
+    .pdf-frame-wrap{border-radius:18px;overflow:hidden;border:1px solid #e3e8f4;box-shadow:var(--shadow);background:#f4f6fb;height:75vh;min-height:480px;max-width:960px;margin:28px auto 0;isolation:isolate}
+    .pdf-frame-wrap embed{width:100%;height:100%;border:0;display:block}
+    .pdf-fallback{padding:40px;text-align:center}
   </style>
 </head>
 <body>
@@ -250,6 +253,24 @@
         </div>
         <div class="center" style="margin-top:22px">
           <a href="../downloads/amostra-gratis-kit-auditoria-iso-9001-2026.xlsx" class="btn btn-outline btn-lg" download>Baixar a planilha de amostra →</a>
+        </div>
+
+        <div class="center" style="margin-top:50px">
+          <h2 style="margin-top:0">Veja o Kit por dentro, em PDF</h2>
+          <p class="section-copy">
+            O guia de amostra com os prints reais de cada arquivo, os dashboards preenchidos e as explicações do
+            Prof. Ronaldo — as mesmas 33 páginas que mostram exatamente como o Kit completo funciona.
+          </p>
+        </div>
+        <div class="pdf-frame-wrap">
+          <embed src="../downloads/amostra-gratis-kit-auditoria-iso-9001-2026.pdf" type="application/pdf">
+          <div class="pdf-fallback">
+            <p class="muted">Não foi possível exibir o PDF aqui.</p>
+            <a href="../downloads/amostra-gratis-kit-auditoria-iso-9001-2026.pdf" class="btn btn-outline" target="_blank" rel="noopener">Abrir a amostra em outra aba</a>
+          </div>
+        </div>
+        <div class="center" style="margin-top:22px">
+          <a href="../downloads/amostra-gratis-kit-auditoria-iso-9001-2026.pdf" class="btn btn-outline btn-lg" target="_blank" rel="noopener">Baixar o PDF da amostra →</a>
         </div>
       </div>
     </section>
