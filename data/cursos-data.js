@@ -106,5 +106,16 @@ const COURSES_DATA = [
     description: "E-book interativo com 100 casos autorais, análise comentada e 300 campos de resposta digitais.",
     link: "../laboratorio-decisoes-antissuborno/",
     ctaLabel: "Ver e-book"
+  },
+  {
+    status: "disponivel",
+    category: "Qualidade",
+    mediaLabel: "ISO 9001:2026",
+    image: "",
+    title: "ISO 9001:2026 — Kit do Auditor",
+    rating: null,
+    description: "Diagnóstico de aderência, programa e plano de auditoria, checklists por processo e por requisito, plano de ação e dashboards em Excel.",
+    link: "../kit-auditoria-interna-iso-9001/",
+    ctaLabel: "Ver Kit"
   }
 ];
