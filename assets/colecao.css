@@ -108,7 +108,7 @@ p{margin:0 0 20px}
   color:white;padding:90px 0 76px;
 }
 .hero:before{
-  content:"";position:absolute;inset:0;
+  content:"";position:absolute;inset:0;pointer-events:none;
   background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
   background-size:36px 36px;mask-image:linear-gradient(to bottom,black,transparent 75%);
 }
