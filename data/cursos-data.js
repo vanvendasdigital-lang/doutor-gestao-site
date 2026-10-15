@@ -115,7 +115,7 @@ const COURSES_DATA = [
     title: "ISO 9001:2026 — Kit do Auditor",
     rating: null,
     description: "Diagnóstico de aderência, programa e plano de auditoria, checklists por processo e por requisito, plano de ação e dashboards em Excel.",
-    link: "../kit-auditoria-interna-iso-9001/",
+    link: "../kit-auditoria-interna-iso-9001-2026/",
     ctaLabel: "Ver Kit"
   }
 ];

@@ -12,3 +12,9 @@
   for = "/*.css"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+[[redirects]]
+  from = "/kit-auditoria-interna-iso-9001/*"
+  to = "/kit-auditoria-interna-iso-9001-2026/:splat"
+  status = 301
+  force = true
