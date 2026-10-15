@@ -90,11 +90,25 @@
     <!-- VÍDEO -->
     <section class="section" style="padding-top:0">
       <div class="wrap">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/HNZ36WAWR6k" title="ISO 9001:2026 | Kit Auditor com Planilhas e Checklists de Auditoria Interna" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="video-wrap" id="videoFacade" role="button" tabindex="0" aria-label="Assistir ao vídeo: ISO 9001:2026 | Kit Auditor com Planilhas e Checklists de Auditoria Interna" style="cursor:pointer;background:#000 url('https://i.ytimg.com/vi/HNZ36WAWR6k/maxresdefault.jpg') center/cover no-repeat">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+            <span style="width:76px;height:54px;background:rgba(20,26,46,.85);border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.4)">
+              <span style="width:0;height:0;border-top:13px solid transparent;border-bottom:13px solid transparent;border-left:22px solid white;margin-left:4px"></span>
+            </span>
+          </span>
         </div>
       </div>
     </section>
+    <script>
+      (function(){
+        var el = document.getElementById('videoFacade');
+        function playVideo(){
+          el.outerHTML = '<div class="video-wrap"><iframe src="https://www.youtube.com/embed/HNZ36WAWR6k?autoplay=1" title="ISO 9001:2026 | Kit Auditor com Planilhas e Checklists de Auditoria Interna" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+        }
+        el.addEventListener('click', playVideo);
+        el.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') playVideo(); });
+      })();
+    </script>
 
     <!-- UMA PALAVRA ANTES -->
     <section class="section">
