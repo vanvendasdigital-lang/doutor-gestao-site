@@ -126,7 +126,7 @@ const COURSES_DATA = [
     title: "KIT AUDITOR ISO 45001",
     rating: null,
     description: "Diagnóstico de aderência, programa e plano de auditoria, checklists por processo e por requisito, três exemplos preenchidos e guia de uso em PDF.",
-    link: "../kit-auditoria-interna-iso-45001/",
+    link: "../kit-auditor-iso-45001/",
     ctaLabel: "Ver Kit"
   }
 ];
