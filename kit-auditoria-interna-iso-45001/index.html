@@ -32,6 +32,9 @@
     .light-stat strong{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.5rem;color:var(--purple-800)}
     .light-stat span{display:block;font-size:.78rem;color:var(--muted);margin-top:4px}
     @media(max-width:900px){.stat-mini-grid,.light-stat-grid{grid-template-columns:repeat(2,1fr)}}
+    .pdf-frame-wrap{border-radius:18px;overflow:hidden;border:1px solid #e3e8f4;box-shadow:var(--shadow);background:#f4f6fb;height:75vh;min-height:480px;max-width:960px;margin:28px auto 0;isolation:isolate}
+    .pdf-frame-wrap embed{width:100%;height:100%;border:0;display:block}
+    .pdf-fallback{padding:40px;text-align:center}
   </style>
 </head>
 <body>
@@ -42,6 +45,7 @@
         <img src="../assets/doutor-gestao-banner.png" alt="Doutor Gestão">
       </a>
       <div class="top-actions">
+        <a href="#amostra" class="btn btn-secondary">Ver amostra grátis</a>
         <a href="https://payfast.greenn.com.br/200032/offer/SgVHzd?ch_id=143014" class="btn btn-primary js-checkout">Quero o Kit completo</a>
       </div>
     </div>
@@ -72,6 +76,7 @@
 
         <div class="hero-actions">
           <a href="https://payfast.greenn.com.br/200032/offer/SgVHzd?ch_id=143014" class="btn btn-primary btn-lg js-checkout">Quero o Kit completo <span class="arrow">→</span></a>
+          <a href="#amostra" class="btn btn-secondary btn-lg">Ver amostra grátis</a>
         </div>
         <p class="micro">Acesso imediato · Arquivos editáveis em Excel, sem mensalidade</p>
       </div>
@@ -201,6 +206,30 @@
 
         <div class="retention-box" style="text-align:left;max-width:780px;margin:20px auto 0">
           <p class="muted" style="margin:0"><strong style="color:var(--ink)">Por que isso importa:</strong> você sai de "acho que estamos bem" para números por processo. A direção vê onde investir primeiro, sem ler relatório de 40 páginas. Na próxima rodada, você prova a evolução com o mesmo método.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AMOSTRA GRÁTIS -->
+    <section id="amostra" class="section" style="background:#fafbfe">
+      <div class="wrap">
+        <div class="center">
+          <span class="eyebrow"><span class="dot"></span> Amostra grátis</span>
+          <h2 style="margin-top:14px">Veja o Kit por dentro, em PDF</h2>
+          <p class="section-copy">
+            O guia de amostra com os prints reais de cada arquivo, os dashboards preenchidos e as explicações do
+            Prof. Ronaldo — as mesmas páginas que mostram exatamente como o Kit completo funciona.
+          </p>
+        </div>
+        <div class="pdf-frame-wrap">
+          <embed src="../downloads/amostra-gratis-kit-auditoria-iso-45001.pdf" type="application/pdf">
+          <div class="pdf-fallback">
+            <p class="muted">Não foi possível exibir o PDF aqui.</p>
+            <a href="../downloads/amostra-gratis-kit-auditoria-iso-45001.pdf" class="btn btn-outline" target="_blank" rel="noopener">Abrir a amostra em outra aba</a>
+          </div>
+        </div>
+        <div class="center" style="margin-top:22px">
+          <a href="../downloads/amostra-gratis-kit-auditoria-iso-45001.pdf" class="btn btn-outline btn-lg" target="_blank" rel="noopener">Baixar o PDF da amostra →</a>
         </div>
       </div>
     </section>
