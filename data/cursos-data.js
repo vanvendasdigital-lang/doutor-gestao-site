@@ -117,5 +117,16 @@ const COURSES_DATA = [
     description: "Diagnóstico de aderência, programa e plano de auditoria, checklists por processo e por requisito, plano de ação e dashboards em Excel.",
     link: "../kit-auditoria-interna-iso-9001-2026/",
     ctaLabel: "Ver Kit"
+  },
+  {
+    status: "disponivel",
+    category: "Segurança do Trabalho",
+    mediaLabel: "ISO 45001:2024",
+    image: "",
+    title: "KIT AUDITOR ISO 45001",
+    rating: null,
+    description: "Diagnóstico de aderência, programa e plano de auditoria, checklists por processo e por requisito, três exemplos preenchidos e guia de uso em PDF.",
+    link: "../kit-auditoria-interna-iso-45001/",
+    ctaLabel: "Ver Kit"
   }
 ];
