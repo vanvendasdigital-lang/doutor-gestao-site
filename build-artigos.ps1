@@ -144,6 +144,7 @@ function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $
       <ul>
         <li><a href="${rootPrefix}index.html">Home</a></li>
         <li><a href="${rootPrefix}cursos/">Cursos</a></li>
+        <li><a href="${rootPrefix}resultados/">Resultados</a></li>
         <li><a href="$artigosHref">Artigos</a></li>
         <li><a href="${rootPrefix}quem-somos/">Quem Somos</a></li>
       </ul>
@@ -207,6 +208,7 @@ $cardsHtml
       <div>
         <h4>Institucional</h4>
         <ul>
+          <li><a href="${rootPrefix}resultados/">Resultados</a></li>
           <li><a href="${rootPrefix}quem-somos/">Quem Somos</a></li>
           <li><a href="${rootPrefix}faq/">FAQ</a></li>
           <li><a href="$artigosHref">Artigos</a></li>

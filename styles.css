@@ -379,6 +379,161 @@ img { max-width: 100%; display: block; }
 .pb-grid-4 { grid-template-columns: repeat(4, 1fr); }
 .pb-grid-2 { grid-template-columns: repeat(2, 1fr); }
 
+.pb-card-accent { border-top: 3px solid var(--color-star); }
+.pb-card-accent-blue { border-top: 3px solid var(--color-primary); }
+.pb-card-accent-green { border-top: 3px solid #2f9e5c; }
+
+/* Números institucionais */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background: var(--color-primary-dark);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  border-top: 3px solid var(--color-star);
+}
+
+.stat-card .stat-number {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 34px;
+  color: #fff;
+  line-height: 1;
+}
+
+.stat-card .stat-label {
+  margin-top: 10px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+}
+
+/* Clientes atendidos */
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.client-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-left: 3px solid var(--color-star);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.client-card strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--color-primary-dark);
+}
+
+.client-card span { font-size: 11.5px; color: var(--color-text-muted); }
+
+/* Página de Resultados (cases) */
+.case-card {
+  background: var(--color-primary-dark);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+.case-card .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+
+.case-card .case-tag {
+  border: 1px solid var(--color-star);
+  color: var(--color-star);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 11.5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.case-card .case-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 6px;
+}
+
+.case-card .case-total {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 36px;
+  color: #fff;
+}
+
+.exposure-bar {
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  margin: 18px 0;
+  display: flex;
+}
+
+.exposure-bar-segment:first-child { border-radius: 999px 0 0 999px; }
+.exposure-bar-segment:last-child { border-radius: 0 999px 999px 0; }
+.exposure-bar-segment.seg-primary { background: linear-gradient(90deg, #5b8af5 0%, var(--color-primary) 100%); }
+.exposure-bar-segment.seg-warn { background: var(--color-star); }
+.exposure-bar-segment.seg-risk { background: #e2574c; }
+.exposure-bar-segment.seg-muted { background: rgba(255, 255, 255, 0.3); }
+
+.case-card .case-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.case-card .case-breakdown strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 22px;
+  color: #fff;
+}
+
+.case-card .case-breakdown span {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rank-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+
+.rank-list li { display: flex; align-items: baseline; gap: 12px; font-size: 14px; color: var(--color-text); }
+
+.rank-list .rank-num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--color-star);
+  font-size: 13px;
+  width: 22px;
+  flex-shrink: 0;
+}
+
+.cost-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 10px; font-size: 14px; }
+.cost-list li::before { content: "•"; color: var(--color-primary); margin-right: 8px; }
+
+.case-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
 /* Course spotlight */
 .course-card {
   display: grid;
@@ -1227,6 +1382,9 @@ img { max-width: 100%; display: block; }
   .pb-grid { grid-template-columns: 1fr; }
   .pb-grid-4 { grid-template-columns: repeat(2, 1fr); }
   .pb-grid-2 { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .client-grid { grid-template-columns: repeat(2, 1fr); }
+  .case-layout { grid-template-columns: 1fr; }
   .course-card { grid-template-columns: 1fr; }
   .testimonial-grid { grid-template-columns: 1fr; }
   .authority { grid-template-columns: 1fr; }
@@ -1245,6 +1403,8 @@ img { max-width: 100%; display: block; }
   .trust-strip { grid-template-columns: 1fr; }
   .course-grid { grid-template-columns: 1fr; }
   .pb-grid-4 { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .client-grid { grid-template-columns: 1fr; }
   .header-login-link { display: none; }
   .main-nav { display: none; }
   .main-nav.open {

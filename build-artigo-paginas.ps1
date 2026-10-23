@@ -88,6 +88,7 @@ foreach ($item in $items) {
       <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="../cursos/">Cursos</a></li>
+        <li><a href="../resultados/">Resultados</a></li>
         <li><a href="../artigos/" aria-current="page">Artigos</a></li>
         <li><a href="../quem-somos/">Quem Somos</a></li>
       </ul>
@@ -141,6 +142,7 @@ foreach ($item in $items) {
       <div>
         <h4>Institucional</h4>
         <ul>
+          <li><a href="../resultados/">Resultados</a></li>
           <li><a href="../quem-somos/">Quem Somos</a></li>
           <li><a href="../faq/">FAQ</a></li>
           <li><a href="../artigos/">Artigos</a></li>
