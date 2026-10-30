@@ -192,7 +192,7 @@ $cardsHtml
   <div class="container">
     <h2>Quer aprender na prática?</h2>
     <p>Do artigo à formação completa — conheça o curso de Auditor Interno ISO 9001.</p>
-    <a class="btn btn-primary" href="${rootPrefix}curso-auditor-interno-iso-9001/">Ver curso</a>
+    <a class="btn btn-primary" href="${rootPrefix}curso-auditor-interno-iso-9001-2015/">Ver curso</a>
   </div>
 </section>
 
