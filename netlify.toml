@@ -18,3 +18,21 @@
   to = "/kit-auditoria-interna-iso-9001-2026/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/curso-auditor-interno-iso-9001/*"
+  to = "/curso-auditor-interno-iso-9001-2015/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/curso-auditor-iso-9001-vendas/*"
+  to = "/curso-auditor-iso-9001-2015-vendas/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/colecao-curso-iso-9001/*"
+  to = "/colecao-curso-iso-9001-2015/:splat"
+  status = 301
+  force = true
