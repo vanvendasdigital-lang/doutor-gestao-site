@@ -461,7 +461,7 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 56px;
   width: max-content;
-  animation: logo-carousel-scroll 28s linear infinite;
+  animation: logo-carousel-scroll 50s linear infinite;
 }
 
 .logo-carousel:hover .logo-carousel-track { animation-play-state: paused; }
