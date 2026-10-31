@@ -449,6 +449,46 @@ img { max-width: 100%; display: block; }
 
 .client-card span { font-size: 11.5px; color: var(--color-text-muted); }
 
+/* Carrossel de logomarcas de clientes */
+.logo-carousel {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.logo-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  width: max-content;
+  animation: logo-carousel-scroll 28s linear infinite;
+}
+
+.logo-carousel:hover .logo-carousel-track { animation-play-state: paused; }
+
+.logo-carousel-track img {
+  height: 40px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+  flex-shrink: 0;
+}
+
+.logo-carousel-track img:hover { filter: none; opacity: 1; }
+
+@keyframes logo-carousel-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-carousel-track { animation: none; }
+  .logo-carousel { overflow-x: auto; }
+}
+
 /* Página de Resultados (cases) */
 .case-card {
   background: var(--color-primary-dark);
