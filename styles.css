@@ -854,6 +854,10 @@ img { max-width: 100%; display: block; }
 
 .side-card h3 { font-size: 15px; margin-bottom: 16px; }
 
+/* O card de busca precisa ficar acima dos cards seguintes (Categorias etc.)
+   quando o dropdown de resultados abre e "vaza" pra fora do card. */
+.side-card-search { position: relative; z-index: 10; }
+
 .side-card .search-results-wrap { max-width: none; margin: 0; }
 .side-card .course-search-input { max-width: none; }
 

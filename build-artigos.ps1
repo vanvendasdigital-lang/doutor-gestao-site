@@ -233,7 +233,7 @@ $cardsHtml
           <a class="btn" href="${rootPrefix}kit-auditoria-interna-iso-9001-2026/">Conhecer o kit</a>
         </div>
 
-        <div class="side-card">
+        <div class="side-card side-card-search">
           <h3>Buscar artigos</h3>
           <div class="search-results-wrap">
             <input type="search" id="article-search" class="course-search-input" placeholder="Buscar entre os $totalItems artigos..." aria-label="Buscar artigo" autocomplete="off">
@@ -430,7 +430,7 @@ $cardsHtml
           <a class="btn" href="${rootPrefix}kit-auditoria-interna-iso-9001-2026/">Conhecer o kit</a>
         </div>
 
-        <div class="side-card">
+        <div class="side-card side-card-search">
           <h3>Buscar artigos</h3>
           <div class="search-results-wrap">
             <input type="search" id="article-search" class="course-search-input" placeholder="Buscar entre os artigos..." aria-label="Buscar artigo" autocomplete="off">
