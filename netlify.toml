@@ -36,3 +36,24 @@
   to = "/colecao-curso-iso-9001-2015/:splat"
   status = 301
   force = true
+
+# Artigos duplicados (mesmo titulo/data, conteudo quase identico) removidos
+# do catalogo em 04/11/2026 — redireciona pra versao canonica.
+[[redirects]]
+  from = "/sistemas-de-gestao-legados-que-duram-2/*"
+  to = "/sistemas-de-gestao-legados-que-duram/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/iso-9001-e-a-sua-carreira-profissional-2/*"
+  to = "/iso-9001-e-a-sua-carreira-profissional/:splat"
+  status = 301
+  force = true
+
+# Endereco antigo de sitemap que o Search Console reportava como quebrado.
+[[redirects]]
+  from = "/sitemap_index.xml"
+  to = "/sitemap.xml"
+  status = 301
+  force = true
