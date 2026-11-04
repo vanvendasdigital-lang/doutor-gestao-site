@@ -1,12 +1,10 @@
-# Gera as 200 paginas individuais de artigo (ex: /auditoria-interna-iso-9001-2/index.html)
-# a partir de data/artigos-data.json, e reescreve o campo "link" de cada item nesse
-# mesmo arquivo para apontar pro caminho local (ex: "/auditoria-interna-iso-9001-2/")
-# em vez da URL antiga do WordPress.
+﻿# Gera as 200 paginas individuais de artigo (ex: /auditoria-interna-iso-9001-2/index.html)
+# a partir de data/artigos-data.json.
 #
-# Rode este script UMA VEZ para fazer a migracao. Depois disso, novos artigos podem
-# ser adicionados direto com link local em data/artigos-data.json — nao precisa
-# rodar este script de novo, so o build-artigos.ps1 (que regera as listagens e a
-# busca a partir do artigos-data.json atualizado).
+# Cada item pode ter um campo "relatedProducts": [{ "title": "...", "url": "..." }, ...]
+# — quando presente, a pagina do artigo mostra um CTA sutil levando para a(s)
+# pagina(s) de vendas relacionada(s). Esse campo e adicionado via
+# patch-artigos-relacionados.ps1 (rode-o antes, se for atualizar os vinculos).
 #
 # Como rodar (a partir da pasta redesign-prototype):
 #   powershell -ExecutionPolicy Bypass -File build-artigo-paginas.ps1
@@ -28,8 +26,6 @@ function Html-Attr([string]$s) {
 }
 
 function Get-Slug([string]$link) {
-  # Aceita tanto o link antigo do WordPress quanto o link local (script e
-  # idempotente: pode rodar de novo com seguranca depois da primeira migracao).
   $slug = $link -replace '^https://doutorgestao\.com\.br/','' -replace '^/','' -replace '/$',''
   return $slug
 }
@@ -51,12 +47,33 @@ function Get-BodyHtml($item) {
   return "<p>$(Html-Attr $item.excerpt)</p>"
 }
 
+function Related-Cta-Html($item) {
+  $products = @($item.relatedProducts) | Where-Object { $_ -and $_.url }
+  if ($products.Count -eq 0) { return "" }
+
+  $links = New-Object System.Collections.ArrayList
+  foreach ($p in $products) {
+    [void]$links.Add("<a class=`"btn btn-purple`" href=`"../$($p.url)`">Conhecer $(Html-Attr $p.title) &rarr;</a>")
+  }
+  $linksHtml = $links -join "`n        "
+
+  $label = if ($products.Count -gt 1) { "Materiais relacionados a este assunto" } else { "Material relacionado a este assunto" }
+
+  return @"
+    <div class="related-cta">
+      <div class="related-cta-text"><strong>${label}:</strong></div>
+        $linksHtml
+    </div>
+"@
+}
+
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $waCta = "https://wa.me/5531996150785?text=Ol%C3%A1!%20Li%20um%20artigo%20no%20site%20e%20gostaria%20de%20saber%20mais."
 
 foreach ($item in $items) {
   $slug = Get-Slug $item.link
   $bodyHtml = Get-BodyHtml $item
+  $relatedHtml = Related-Cta-Html $item
 
   if ($item.image) {
     $imageHtml = "<div class=`"article-detail-image`"><img src=`"$(Html-Attr $item.image)`" alt=`"$(Html-Attr $item.title)`"></div>"
@@ -75,50 +92,46 @@ foreach ($item in $items) {
 <meta name="description" content="$(Html-Attr $item.excerpt)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../assets/colecao.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <a href="../index.html" class="logo">
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="../index.html" class="brand" aria-label="Doutor Gestão">
       <img src="../assets/doutor-gestao-banner.png" alt="Doutor Gestão">
     </a>
-    <nav class="main-nav" id="main-nav">
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../cursos/">Cursos</a></li>
-        <li><a href="../resultados/">Resultados</a></li>
-        <li><a href="../artigos/" aria-current="page">Artigos</a></li>
-        <li><a href="../quem-somos/">Quem Somos</a></li>
-      </ul>
+    <nav class="site-nav" id="main-nav">
+      <a href="../index.html">Home</a>
+      <a href="../cursos/">Cursos</a>
+      <a href="../resultados/">Resultados</a>
+      <a href="../artigos/" aria-current="page">Artigos</a>
+      <a href="../quem-somos/">Quem Somos</a>
     </nav>
-    <div class="header-actions">
-      <a class="btn btn-primary" href="../como-se-tornar-auditor-iso/">Saiba mais</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">☰</button>
+    <div class="top-actions">
+      <a class="btn btn-primary" href="../cursos/">Ver cursos</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">&#9776;</button>
     </div>
   </div>
 </header>
 
-<section class="hero" style="padding:48px 0 24px;">
-  <div class="container" style="grid-template-columns:1fr;">
-    <div class="hero-copy" style="max-width:760px;">
-      <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../artigos/">Artigos</a></p>
-      <span class="hero-eyebrow">$(Html-Attr $item.category)</span>
-      <h1 style="font-size:32px;">$(Html-Attr $item.title)</h1>
-      <p class="article-meta">$($item.date)</p>
-    </div>
+<section class="hero" style="padding:48px 0 36px">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../artigos/">Artigos</a></p>
+    <span class="eyebrow"><span class="dot"></span> $(Html-Attr $item.category)</span>
+    <h1 style="max-width:800px;margin-top:14px;font-size:clamp(1.9rem,4vw,2.8rem)">$(Html-Attr $item.title)</h1>
+    <p class="article-meta" style="color:#b9c2db">$($item.date)</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:0;">
-  <div class="container" style="max-width:760px;">
+<section class="section" style="padding-top:0">
+  <div class="wrap" style="max-width:760px">
     $imageHtml
 
     <div class="article-body">
       $bodyHtml
     </div>
-
+$relatedHtml
     <div class="article-cta-box">
       <h3>Quer se aprofundar nesse assunto?</h3>
       <p>Fale com a gente no WhatsApp ou conheça nossa trilha de cursos em sistemas de gestão ISO.</p>
@@ -130,37 +143,21 @@ foreach ($item in $items) {
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-logo-feature">
-      <img src="../assets/doutor-gestao-banner.png" alt="Doutor Gestão">
-    </div>
-    <div class="footer-grid">
-      <div>
-        <p style="font-size:13px;">Formação e consultoria em sistemas de gestão, ESG e certificações internacionais. Belo Horizonte – MG.</p>
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="brand">
+        <img src="../assets/doutor-gestao-banner.png" alt="Doutor Gestão">
       </div>
-      <div>
-        <h4>Institucional</h4>
-        <ul>
-          <li><a href="../resultados/">Resultados</a></li>
-          <li><a href="../quem-somos/">Quem Somos</a></li>
-          <li><a href="../faq/">FAQ</a></li>
-          <li><a href="../artigos/">Artigos</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="/politica-de-cookie/">Política de Cookies</a></li>
-          <li><a href="/politica-de-privacidade/">Política de Privacidade</a></li>
-          <li><a href="/termos-e-condicoes/">Termos e Condições</a></li>
-        </ul>
-      </div>
+      <small>Formação e consultoria em sistemas de gestão, ESG e certificações internacionais. Belo Horizonte – MG.</small>
     </div>
-    <div class="footer-bottom">
-      <span>© Doutor Gestão. Todos os direitos reservados.</span>
-      <span>professor.ronaldo@doutorgestao.com.br</span>
-    </div>
+    <small>
+      <a href="../resultados/" style="color:#cfd6ea">Resultados</a> ·
+      <a href="../quem-somos/" style="color:#cfd6ea">Quem Somos</a> ·
+      <a href="../faq/" style="color:#cfd6ea">FAQ</a> ·
+      <a href="../artigos/" style="color:#cfd6ea">Artigos</a><br>
+      © Doutor Gestão. Todos os direitos reservados. · professor.ronaldo@doutorgestao.com.br
+    </small>
   </div>
 </footer>
 
@@ -182,12 +179,6 @@ foreach ($item in $items) {
   New-Item -ItemType Directory -Force -Path $dir | Out-Null
   $outPath = Join-Path $dir "index.html"
   [System.IO.File]::WriteAllText($outPath, $html, $utf8NoBom)
-
-  $item.link = "/$slug/"
 }
 
-# Regrava o data/artigos-data.json com os links locais atualizados
-$json = $items | ConvertTo-Json -Depth 5
-[System.IO.File]::WriteAllText($dataPath, $json, $utf8NoBom)
-
-Write-Output "OK: $($items.Count) paginas de artigo geradas, e data\artigos-data.json atualizado com links locais."
+Write-Output "OK: $($items.Count) paginas de artigo geradas."

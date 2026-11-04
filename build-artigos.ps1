@@ -117,7 +117,7 @@ function Pagination-Html($currentPage, $totalPages) {
 function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $totalItems) {
   $isFirst = ($currentPage -eq 1)
   $rootPrefix = if ($isFirst) { "../" } else { "../../../" }
-  $cssHref = if ($isFirst) { "../styles.css" } else { "../../../styles.css" }
+  $cssHref = if ($isFirst) { "../assets/colecao.css" } else { "../../../assets/colecao.css" }
   $artigosHref = if ($isFirst) { "./" } else { "../../" }
   $titleSuffix = if ($isFirst) { "" } else { " — Página $currentPage" }
 
@@ -135,52 +135,46 @@ function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <a href="${rootPrefix}index.html" class="logo">
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="${rootPrefix}index.html" class="brand" aria-label="Doutor Gestão">
       <img src="${rootPrefix}assets/doutor-gestao-banner.png" alt="Doutor Gestão">
     </a>
-    <nav class="main-nav" id="main-nav">
-      <ul>
-        <li><a href="${rootPrefix}index.html">Home</a></li>
-        <li><a href="${rootPrefix}cursos/">Cursos</a></li>
-        <li><a href="${rootPrefix}resultados/">Resultados</a></li>
-        <li><a href="$artigosHref">Artigos</a></li>
-        <li><a href="${rootPrefix}quem-somos/">Quem Somos</a></li>
-      </ul>
+    <nav class="site-nav" id="main-nav">
+      <a href="${rootPrefix}index.html">Home</a>
+      <a href="${rootPrefix}cursos/">Cursos</a>
+      <a href="${rootPrefix}resultados/">Resultados</a>
+      <a href="$artigosHref" aria-current="page">Artigos</a>
+      <a href="${rootPrefix}quem-somos/">Quem Somos</a>
     </nav>
-    <div class="header-actions">
-      <a class="btn btn-primary" href="${rootPrefix}como-se-tornar-auditor-iso/">Saiba mais</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">☰</button>
+    <div class="top-actions">
+      <a class="btn btn-primary" href="${rootPrefix}cursos/">Ver cursos</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">&#9776;</button>
     </div>
   </div>
 </header>
 
-<section class="hero" style="padding:56px 0 40px;">
-  <div class="container" style="grid-template-columns:1fr;">
-    <div class="hero-copy" style="max-width:680px;">
-      <p class="breadcrumb"><a href="${rootPrefix}index.html">Home</a> / Artigos</p>
-      <span class="hero-eyebrow">Conteúdo gratuito</span>
-      <h1>Artigos sobre gestão, qualidade e normas ISO</h1>
-      <p class="hero-sub" style="max-width:600px;">Conteúdo prático, direto de quem audita. $totalItems artigos publicados — página $currentPage de $totalPages.</p>
+<section class="hero" style="padding:56px 0 48px">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="${rootPrefix}index.html">Home</a> / Artigos</p>
+    <span class="eyebrow"><span class="dot"></span> Conteúdo gratuito</span>
+    <h1 style="max-width:760px;margin-top:14px">Artigos sobre gestão, qualidade e normas ISO</h1>
+    <p class="lead" style="max-width:640px">Conteúdo prático, direto de quem audita. $totalItems artigos publicados — página $currentPage de $totalPages.</p>
+  </div>
+</section>
+
+<section class="section" style="padding:48px 0 0">
+  <div class="wrap">
+    <div class="article-search-wrap">
+      <input type="search" id="article-search" class="article-search-input" placeholder="Buscar entre os $totalItems artigos..." aria-label="Buscar artigo" autocomplete="off">
+      <div class="search-results-dropdown" id="article-search-results"></div>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0;">
-  <div class="container">
-    <div class="catalog-search">
-      <div class="search-results-wrap">
-        <input type="search" id="article-search" class="course-search-input" placeholder="Buscar entre os $totalItems artigos..." aria-label="Buscar artigo" autocomplete="off">
-        <div class="search-results-dropdown" id="article-search-results"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0;">
-  <div class="container">
-    <div class="article-grid article-grid-3">
+<section class="section">
+  <div class="wrap">
+    <div class="article-grid">
 $cardsHtml
     </div>
 
@@ -188,45 +182,31 @@ $cardsHtml
   </div>
 </section>
 
-<section class="final-cta">
-  <div class="container">
+<section class="section final-cta">
+  <div class="wrap">
     <h2>Quer aprender na prática?</h2>
-    <p>Do artigo à formação completa — conheça o curso de Auditor Interno ISO 9001.</p>
-    <a class="btn btn-primary" href="${rootPrefix}curso-auditor-interno-iso-9001-2015/">Ver curso</a>
+    <p class="section-copy" style="margin-inline:auto">Do artigo à formação completa — conheça os cursos e kits de auditoria da Doutor Gestão.</p>
+    <div class="final-actions">
+      <a class="btn btn-purple btn-lg" href="${rootPrefix}cursos/">Ver cursos →</a>
+    </div>
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-logo-feature">
-      <img src="${rootPrefix}assets/doutor-gestao-banner.png" alt="Doutor Gestão">
-    </div>
-    <div class="footer-grid">
-      <div>
-        <p style="font-size:13px;">Formação e consultoria em sistemas de gestão, ESG e certificações internacionais. Belo Horizonte – MG.</p>
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="brand">
+        <img src="${rootPrefix}assets/doutor-gestao-banner.png" alt="Doutor Gestão">
       </div>
-      <div>
-        <h4>Institucional</h4>
-        <ul>
-          <li><a href="${rootPrefix}resultados/">Resultados</a></li>
-          <li><a href="${rootPrefix}quem-somos/">Quem Somos</a></li>
-          <li><a href="${rootPrefix}faq/">FAQ</a></li>
-          <li><a href="$artigosHref">Artigos</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="/politica-de-cookie/">Política de Cookies</a></li>
-          <li><a href="/politica-de-privacidade/">Política de Privacidade</a></li>
-          <li><a href="/termos-e-condicoes/">Termos e Condições</a></li>
-        </ul>
-      </div>
+      <small>Formação e consultoria em sistemas de gestão, ESG e certificações internacionais. Belo Horizonte – MG.</small>
     </div>
-    <div class="footer-bottom">
-      <span>© Doutor Gestão. Todos os direitos reservados.</span>
-      <span>professor.ronaldo@doutorgestao.com.br</span>
-    </div>
+    <small>
+      <a href="${rootPrefix}resultados/" style="color:#cfd6ea">Resultados</a> ·
+      <a href="${rootPrefix}quem-somos/" style="color:#cfd6ea">Quem Somos</a> ·
+      <a href="${rootPrefix}faq/" style="color:#cfd6ea">FAQ</a> ·
+      <a href="$artigosHref" style="color:#cfd6ea">Artigos</a><br>
+      © Doutor Gestão. Todos os direitos reservados. · professor.ronaldo@doutorgestao.com.br
+    </small>
   </div>
 </footer>
 
@@ -276,7 +256,7 @@ $cardsHtml
     });
 
     document.addEventListener('click', function (e) {
-      if (!e.target.closest('.search-results-wrap')) {
+      if (!e.target.closest('.article-search-wrap')) {
         dropdown.classList.remove('is-open');
       }
     });
