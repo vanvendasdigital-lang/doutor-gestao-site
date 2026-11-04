@@ -50,6 +50,18 @@ $pageSize = 10
 $totalItems = $items.Count
 $totalPages = [Math]::Ceiling($totalItems / $pageSize)
 
+# Categorias (contagem global) e 5 artigos mais recentes, para a sidebar.
+# Independem da pagina atual, entao sao calculados uma unica vez.
+$categoryGroups = $items | Group-Object category | Sort-Object Count -Descending
+$catListHtml = ($categoryGroups | ForEach-Object {
+  "      <li><div class=`"cat-row`"><span>$(Html-Attr $_.Name)</span><span class=`"count`">$($_.Count)</span></div></li>"
+}) -join "`n"
+
+$recentItems = $items | Select-Object -First 5
+$recentListHtml = ($recentItems | ForEach-Object {
+  "      <li><span class=`"recent-dot`"></span><div><a href=`"$(Html-Attr $_.link)`">$(Html-Attr $_.title)</a><small>$($_.date)</small></div></li>"
+}) -join "`n"
+
 function Get-CoverClass([string]$slug) {
   $sum = 0
   foreach ($c in $slug.ToCharArray()) { $sum += [int]$c }
@@ -118,7 +130,7 @@ function Pagination-Html($currentPage, $totalPages) {
   return $sb.ToString()
 }
 
-function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $totalItems) {
+function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $totalItems, $catListHtml, $recentListHtml) {
   $isFirst = ($currentPage -eq 1)
   $rootPrefix = if ($isFirst) { "../" } else { "../../../" }
   $cssHref = if ($isFirst) { "../styles.css" } else { "../../../styles.css" }
@@ -160,35 +172,59 @@ function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $
   </div>
 </header>
 
-<section class="hero" style="padding:56px 0 40px;">
+<section class="hero" style="padding:40px 0;text-align:center;">
   <div class="container" style="grid-template-columns:1fr;">
-    <div class="hero-copy" style="max-width:680px;">
+    <div class="hero-copy" style="max-width:680px;margin:0 auto;">
       <p class="breadcrumb"><a href="${rootPrefix}index.html">Home</a> / Artigos</p>
       <span class="hero-eyebrow">Conteúdo gratuito</span>
-      <h1>Artigos sobre gestão, qualidade e normas ISO</h1>
-      <p class="hero-sub" style="max-width:600px;">Conteúdo prático, direto de quem audita. $totalItems artigos publicados — página $currentPage de $totalPages.</p>
+      <h1 style="font-size:clamp(34px,5.5vw,54px);">Artigos Doutorgestão</h1>
+      <p class="hero-sub" style="max-width:600px;margin:0 auto;">Conteúdo prático, direto de quem audita. $totalItems artigos publicados — página $currentPage de $totalPages.</p>
     </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:0;">
   <div class="container">
-    <div class="catalog-search">
-      <div class="search-results-wrap">
-        <input type="search" id="article-search" class="course-search-input" placeholder="Buscar entre os $totalItems artigos..." aria-label="Buscar artigo" autocomplete="off">
-        <div class="search-results-dropdown" id="article-search-results"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0;">
-  <div class="container">
-    <div class="article-grid article-grid-3">
+    <div class="articles-layout">
+      <main>
+        <div class="article-grid article-grid-2">
 $cardsHtml
-    </div>
+        </div>
 
-    $paginationHtml
+        $paginationHtml
+      </main>
+
+      <aside class="sidebar">
+        <div class="side-banner">
+          <span class="eyebrow-b">Curso em destaque</span>
+          <h4>Kit de Auditoria Interna ISO 9001:2026</h4>
+          <p>Prepare sua empresa para a nova versão da norma com auditoria interna guiada.</p>
+          <a class="btn" href="${rootPrefix}kit-auditoria-interna-iso-9001-2026/">Conhecer o kit</a>
+        </div>
+
+        <div class="side-card">
+          <h3>Buscar artigos</h3>
+          <div class="search-results-wrap">
+            <input type="search" id="article-search" class="course-search-input" placeholder="Buscar entre os $totalItems artigos..." aria-label="Buscar artigo" autocomplete="off">
+            <div class="search-results-dropdown" id="article-search-results"></div>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <h3>Categorias</h3>
+          <ul class="cat-list">
+$catListHtml
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h3>Recentes</h3>
+          <ul class="recent-list">
+$recentListHtml
+          </ul>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -297,7 +333,7 @@ for ($page = 1; $page -le $totalPages; $page++) {
   $pageItems = $items | Select-Object -Skip $startIdx -First $pageSize
   $cardsHtml = ($pageItems | ForEach-Object { Card-Html $_ }) -join "`n"
   $paginationHtml = Pagination-Html $page $totalPages
-  $html = Page-Template $cardsHtml $paginationHtml $page $totalPages $totalItems
+  $html = Page-Template $cardsHtml $paginationHtml $page $totalPages $totalItems $catListHtml $recentListHtml
 
   if ($page -eq 1) {
     $outPath = Join-Path $root "artigos\index.html"
