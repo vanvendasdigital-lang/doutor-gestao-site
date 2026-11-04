@@ -117,7 +117,6 @@ function Pagination-Html($currentPage, $totalPages) {
 function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $totalItems) {
   $isFirst = ($currentPage -eq 1)
   $rootPrefix = if ($isFirst) { "../" } else { "../../../" }
-  $cssHref = if ($isFirst) { "../assets/colecao.css" } else { "../../../assets/colecao.css" }
   $artigosHref = if ($isFirst) { "./" } else { "../../" }
   $titleSuffix = if ($isFirst) { "" } else { " — Página $currentPage" }
 
@@ -131,24 +130,36 @@ function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $
 <meta name="description" content="Artigos práticos sobre ISO 9001, 14001, 45001, gestão da qualidade, ESG e segurança do trabalho, escritos pelo Prof. Ronaldo Veloso. Página $currentPage de $totalPages.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="$cssHref">
+<link rel="stylesheet" href="${rootPrefix}styles.css">
+<link rel="stylesheet" href="${rootPrefix}assets/colecao.css">
+<style>
+  /* O cabeçalho segue o padrão da Home (styles.css); o corpo da página usa a
+     nova identidade visual (colecao.css). Como os dois arquivos definem .btn
+     e .nav-toggle, essas regras garantem que o cabeçalho continue com a cara
+     da Home mesmo com o colecao.css carregado depois. */
+  .site-header .btn-primary{background:var(--color-primary-dark);color:#fff;box-shadow:0 6px 18px rgba(39,48,68,.3)}
+  .site-header .btn-primary:hover{background:#1c2436}
+  .site-header .nav-toggle{color:var(--color-primary-dark)}
+</style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <a href="${rootPrefix}index.html" class="brand" aria-label="Doutor Gestão">
+<header class="site-header">
+  <div class="container">
+    <a href="${rootPrefix}index.html" class="logo">
       <img src="${rootPrefix}assets/doutor-gestao-banner.png" alt="Doutor Gestão">
     </a>
-    <nav class="site-nav" id="main-nav">
-      <a href="${rootPrefix}index.html">Home</a>
-      <a href="${rootPrefix}cursos/">Cursos</a>
-      <a href="${rootPrefix}resultados/">Resultados</a>
-      <a href="$artigosHref" aria-current="page">Artigos</a>
-      <a href="${rootPrefix}quem-somos/">Quem Somos</a>
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="${rootPrefix}index.html">Home</a></li>
+        <li><a href="${rootPrefix}cursos/">Cursos</a></li>
+        <li><a href="${rootPrefix}resultados/">Resultados</a></li>
+        <li><a href="$artigosHref" aria-current="page">Artigos</a></li>
+        <li><a href="${rootPrefix}quem-somos/">Quem Somos</a></li>
+      </ul>
     </nav>
-    <div class="top-actions">
-      <a class="btn btn-primary" href="${rootPrefix}cursos/">Ver cursos</a>
+    <div class="header-actions">
+      <a class="btn btn-primary" href="${rootPrefix}cursos/">Conhecer cursos</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">&#9776;</button>
     </div>
   </div>

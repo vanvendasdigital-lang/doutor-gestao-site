@@ -7,24 +7,36 @@
 <meta name="description" content="Introdução ao Desenvolvimento Sustentável O desenvolvimento sustentável é um conceito multifacetado que visa satisfazer as necessidades da geração…">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="../assets/colecao.css">
+<style>
+  /* O cabeçalho segue o padrão da Home (styles.css); o corpo da página usa a
+     nova identidade visual (colecao.css). Como os dois arquivos definem .btn
+     e .nav-toggle, essas regras garantem que o cabeçalho continue com a cara
+     da Home mesmo com o colecao.css carregado depois. */
+  .site-header .btn-primary{background:var(--color-primary-dark);color:#fff;box-shadow:0 6px 18px rgba(39,48,68,.3)}
+  .site-header .btn-primary:hover{background:#1c2436}
+  .site-header .nav-toggle{color:var(--color-primary-dark)}
+</style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <a href="../index.html" class="brand" aria-label="Doutor Gestão">
+<header class="site-header">
+  <div class="container">
+    <a href="../index.html" class="logo">
       <img src="../assets/doutor-gestao-banner.png" alt="Doutor Gestão">
     </a>
-    <nav class="site-nav" id="main-nav">
-      <a href="../index.html">Home</a>
-      <a href="../cursos/">Cursos</a>
-      <a href="../resultados/">Resultados</a>
-      <a href="../artigos/" aria-current="page">Artigos</a>
-      <a href="../quem-somos/">Quem Somos</a>
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../cursos/">Cursos</a></li>
+        <li><a href="../resultados/">Resultados</a></li>
+        <li><a href="../artigos/" aria-current="page">Artigos</a></li>
+        <li><a href="../quem-somos/">Quem Somos</a></li>
+      </ul>
     </nav>
-    <div class="top-actions">
-      <a class="btn btn-primary" href="../cursos/">Ver cursos</a>
+    <div class="header-actions">
+      <a class="btn btn-primary" href="../cursos/">Conhecer cursos</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">&#9776;</button>
     </div>
   </div>
