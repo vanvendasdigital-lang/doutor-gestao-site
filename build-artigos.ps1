@@ -53,9 +53,31 @@ $totalPages = [Math]::Ceiling($totalItems / $pageSize)
 # Categorias (contagem global) e 5 artigos mais recentes, para a sidebar.
 # Independem da pagina atual, entao sao calculados uma unica vez.
 $categoryGroups = $items | Group-Object category | Sort-Object Count -Descending
-$catListHtml = ($categoryGroups | ForEach-Object {
-  "      <li><div class=`"cat-row`"><span>$(Html-Attr $_.Name)</span><span class=`"count`">$($_.Count)</span></div></li>"
-}) -join "`n"
+
+# Categorias com curso de vendas associado (confirmado com o cliente em 04/11/2026).
+# Categorias fora deste mapa (ex: Desenvolvimento Profissional, Cibersegurança e
+# Informação, Engenharia e Inovação) nao tem curso correspondente e ficam sem link.
+$categoryCourseMap = @{
+  "ESG e Sustentabilidade"    = "kit-auditoria-interna-iso-14001-2026/"
+  "Qualidade e Melhoria"      = "curso-auditor-interno-iso-9001-2015/"
+  "Gestão da Qualidade"       = "curso-auditor-interno-iso-9001-2015/"
+  "Conformidade"              = "colecao-iso-37001-2025/"
+  "Segurança e Meio Ambiente" = "kit-auditoria-interna-iso-14001-2026/"
+}
+
+function CatList-Html($categoryGroups, $categoryCourseMap, $rootPrefix) {
+  $rows = $categoryGroups | ForEach-Object {
+    $name = $_.Name
+    $count = $_.Count
+    if ($categoryCourseMap.ContainsKey($name)) {
+      $href = "${rootPrefix}$($categoryCourseMap[$name])"
+      "      <li><a class=`"cat-row`" href=`"$href`"><span>$(Html-Attr $name)</span><span class=`"count`">$count</span></a></li>"
+    } else {
+      "      <li><div class=`"cat-row`"><span>$(Html-Attr $name)</span><span class=`"count`">$count</span></div></li>"
+    }
+  }
+  return ($rows -join "`n")
+}
 
 $recentItems = $items | Select-Object -First 5
 $recentListHtml = ($recentItems | ForEach-Object {
@@ -130,12 +152,13 @@ function Pagination-Html($currentPage, $totalPages) {
   return $sb.ToString()
 }
 
-function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $totalItems, $catListHtml, $recentListHtml) {
+function Page-Template($cardsHtml, $paginationHtml, $currentPage, $totalPages, $totalItems, $recentListHtml) {
   $isFirst = ($currentPage -eq 1)
   $rootPrefix = if ($isFirst) { "../" } else { "../../../" }
   $cssHref = if ($isFirst) { "../styles.css" } else { "../../../styles.css" }
   $artigosHref = if ($isFirst) { "./" } else { "../../" }
   $titleSuffix = if ($isFirst) { "" } else { " — Página $currentPage" }
+  $catListHtml = CatList-Html $categoryGroups $categoryCourseMap $rootPrefix
 
   return @"
 <!DOCTYPE html>
@@ -333,7 +356,7 @@ for ($page = 1; $page -le $totalPages; $page++) {
   $pageItems = $items | Select-Object -Skip $startIdx -First $pageSize
   $cardsHtml = ($pageItems | ForEach-Object { Card-Html $_ }) -join "`n"
   $paginationHtml = Pagination-Html $page $totalPages
-  $html = Page-Template $cardsHtml $paginationHtml $page $totalPages $totalItems $catListHtml $recentListHtml
+  $html = Page-Template $cardsHtml $paginationHtml $page $totalPages $totalItems $recentListHtml
 
   if ($page -eq 1) {
     $outPath = Join-Path $root "artigos\index.html"

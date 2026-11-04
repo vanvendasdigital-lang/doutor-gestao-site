@@ -861,6 +861,8 @@ img { max-width: 100%; display: block; }
 .cat-list li { border-bottom: 1px solid #eceef4; }
 .cat-list li:last-child { border-bottom: none; }
 .cat-list .cat-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; font-size: 13.5px; color: var(--color-text); }
+.cat-list a.cat-row:hover { color: var(--color-primary); }
+.cat-list a.cat-row:hover .count { background: var(--color-primary-soft); color: var(--color-primary); }
 .cat-list .count {
   color: var(--color-text-muted);
   font-size: 12px;
