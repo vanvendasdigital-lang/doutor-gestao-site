@@ -297,6 +297,7 @@ $recentListHtml
     <div class="footer-bottom">
       <span>© Doutor Gestão. Todos os direitos reservados.</span>
       <span>professor.ronaldo@doutorgestao.com.br</span>
+      <span>Desenvolvido por Vanessa Sousa · (31) 99472-5779</span>
     </div>
   </div>
 </footer>
@@ -494,6 +495,7 @@ $recentListHtml
     <div class="footer-bottom">
       <span>© Doutor Gestão. Todos os direitos reservados.</span>
       <span>professor.ronaldo@doutorgestao.com.br</span>
+      <span>Desenvolvido por Vanessa Sousa · (31) 99472-5779</span>
     </div>
   </div>
 </footer>
