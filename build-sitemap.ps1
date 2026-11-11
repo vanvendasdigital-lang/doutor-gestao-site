@@ -73,6 +73,7 @@ $products = @(
   @{ path = "colecao-sgi-9001-14001-45001/"; date = "2026-10-26" }
   @{ path = "como-se-tornar-auditor-iso/"; date = "2026-10-23" }
   @{ path = "curso-auditor-interno-iso-9001-2015/"; date = "2026-10-30" }
+  @{ path = "curso-iso-45001-2024-interpretacao-aplicacao/"; date = "2026-11-11" }
   @{ path = "ebook-iso-37001-antissuborno/"; date = "2026-10-23" }
   @{ path = "ebook-iso-37301-compliance/"; date = "2026-10-23" }
   @{ path = "ebook-iso-9001-2026-transicao/"; date = "2026-10-29" }
